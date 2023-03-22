@@ -3,18 +3,22 @@ import React, { useState, useEffect } from 'react';
 const SectionsNav = () => {
     const navItems = [
         {
+            label: 'section intro',
             icon: 'icon-MenuIntro',
             sectionId: 'landing-section'
         },
         {
+            label: 'section services',
             icon: 'icon-MenuServices',
             sectionId: 'services-section'
         },
         {
+            label: 'section projects',
             icon: 'icon-MenuProjects',
             sectionId: 'projects-section'
         },
         {
+            label: 'section contact',
             icon: 'icon-MenuContact',
             sectionId: 'contact-section'
         }
@@ -64,6 +68,7 @@ const SectionsNav = () => {
                         onClick={() => scrollToSection(item.sectionId)}
                         className={activeItem === item.sectionId ? 'sections-nav__item active' : 'sections-nav__item'}
                         key={item.icon}
+                        aria-label={item.label}
                     >
                         <span className={item.icon}></span>
                     </button>

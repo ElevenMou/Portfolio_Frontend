@@ -18,7 +18,6 @@ const Project = ({ project }) => {
                 <img src={project.image} alt='project' />
                 <div className='project__content'>
                     <h3 className='project__title'> {project.title} </h3>
-                    <p className='project__desc'> {project.description} </p>
                 </div>
             </div>
             <Popup isOpen={showDetails} closePopup={() => togglePopup}>
