@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
-    const submitBtn = useRef(null);
+    const { t } = useTranslation();
     const [formData, setFormData] = useState({
         name: {
             value: '',
@@ -23,12 +25,14 @@ const Contact = () => {
         },
         valid: {
             isValid: true,
-            message: 'Contact form'
+            message: t('contact.form.title')
         }
     });
+    const form = useRef();
 
     const [enabled, setEnabled] = useState(false);
     const [escape, setEscape] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const handleInputChange = e => {
         const { name, value } = e.target;
@@ -44,16 +48,54 @@ const Contact = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if(enabled) {
-
-        } else {
-            setFormData(prev => ({
-                ...prev,
-                valid: {
-                    isValid: false,
-                    message: 'Form invalid'
+        if (enabled && !loading) {
+            setLoading(true);
+            await emailjs.sendForm("service_h89dzqd", "template_uaoles8", form.current, "-bEximWOIrr-T5TTo")
+            .then((resp) => {
+                if(resp.text === "OK") {
+                    setFormData({
+                        name: {
+                            value: '',
+                            isTouched: false,
+                            isValid: true,
+                            validationMessage: ''
+                        },
+                        email: {
+                            value: '',
+                            isTouched: false,
+                            isValid: true,
+                            validationMessage: ''
+                        },
+                        message: {
+                            value: '',
+                            isTouched: false,
+                            isValid: true,
+                            validationMessage: ''
+                        },
+                        valid: {
+                            isValid: true,
+                            message: t('contact.form.success')
+                        }
+                    });
                 }
-            }));
+            }).catch((err) => {
+                setFormData(prev => ({
+                    ...prev,
+                    valid: {
+                        isValid: false,
+                        message: t('contact.form.failed')
+                    }
+                }));
+            });
+            setLoading(false);
+            
+        } else {
+            let data = formData;
+            data.valid = {
+                isValid: false,
+                message: t('contact.form.errTitle')
+            }
+            setFormData(data);
         }
     }
 
@@ -65,7 +107,7 @@ const Contact = () => {
                 name: {
                     ...prev.name,
                     isValid: false,
-                    validationMessage: 'enter a valid name'
+                    validationMessage: t('contact.form.validation.name')
                 }
             }));
         } else {
@@ -86,7 +128,7 @@ const Contact = () => {
                 email: {
                     ...prev.email,
                     isValid: false,
-                    validationMessage: 'enter a valid email'
+                    validationMessage: t('contact.form.validation.email')
                 }
             }));
 
@@ -107,7 +149,7 @@ const Contact = () => {
                 message: {
                     ...prev.message,
                     isValid: false,
-                    validationMessage: 'min. 20 character'
+                    validationMessage: t('contact.form.validation.message')
                 }
             }));
         } else {
@@ -125,6 +167,15 @@ const Contact = () => {
             && formData.email.isTouched && formData.email.isValid
             && formData.message.isTouched && formData.message.isValid) {
             setEnabled(true);
+            setFormData(prev => (
+                {
+                    ...prev,
+                    valid: {
+                        isValid: true,
+                        message: t('contact.form.title')
+                    }
+                }
+            ));
         } else {
             setEnabled(false);
         }
@@ -135,20 +186,28 @@ const Contact = () => {
     }, [formData.name.value, formData.email.value, formData.message.value]);
 
     const handleSubmitHover = () => {
-        if(!enabled) {
+        if (!enabled) {
             setEscape(prev => !prev)
         }
     }
 
     return (
-        <form onSubmit={handleSubmit} className='contact-form'>
+        <form ref={form} onSubmit={handleSubmit} className='contact-form'>
             <div className='form-validation' valid={formData.valid.isValid.toString()}>
                 {formData.valid.message}
             </div>
 
             <div className='form-group'>
-                <label>Name</label>
-                <input name='name' type='text' placeholder='Name' className='form-control' value={formData.name.value} is-valid={formData.name.isValid.toString()} onChange={handleInputChange} onBlur={validateForm} />
+                <label> {t('contact.form.name')} </label>
+                <input
+                    name='name'
+                    type='text'
+                    placeholder={t('contact.form.name')}
+                    className='form-control'
+                    value={formData.name.value}
+                    is-valid={formData.name.isValid.toString()}
+                    onChange={handleInputChange} onBlur={validateForm}
+                />
                 <span className='validation-message'> {formData.name.validationMessage} </span>
             </div>
             <div className='form-group'>
@@ -166,10 +225,13 @@ const Contact = () => {
                     type='submit'
                     name='submit'
                     className={escape ? 'submit-btn escape' : 'submit-btn'}
-                    ref={submitBtn}
                     onMouseEnter={handleSubmitHover}
+                    disabled={loading}
                 >
-                    Send message
+                    {loading ? 
+                        <div className='loading'>&nbsp;</div>
+                    :
+                    t('contact.form.send')}
                 </button>
             </div>
         </form>

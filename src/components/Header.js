@@ -1,6 +1,7 @@
 import React from 'react'
 import Logo from '../assets/logo.svg'
 import { Link } from 'react-router-dom'
+import LangSwitcher from './LangSwitcher'
 
 const Header = () => {
     return (
@@ -9,9 +10,7 @@ const Header = () => {
                 <img src={Logo} alt='logo' />
                 <span className='app-header__first-name'>Moussa </span>Saidi
             </Link>
-            <Link to='/' className='app-header__link'>
-                Blog
-            </Link>
+            <LangSwitcher />
         </header>
     )
 }

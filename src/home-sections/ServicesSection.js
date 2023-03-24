@@ -5,12 +5,13 @@ import MaintenanceIcon from '../assets/services-svg/maintenance.svg'
 import SeoIcon from '../assets/services-svg/seo.svg'
 import BrandingIcon from '../assets/services-svg/branding.svg'
 import MailIcon from '../assets/services-svg/email.svg'
-import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 const ServicesSection = () => {
+    const { t } = useTranslation();
     const services = [
         {
-            title: 'Web development',
+            title: t('services.webdev'),
             icon: WebDevIcon,
             link: '#'
         },
@@ -20,7 +21,7 @@ const ServicesSection = () => {
             link: '#'
         },
         {
-            title: 'Web maintenance',
+            title: t('services.webmaintenance'),
             icon: MaintenanceIcon,
             link: '#'
         },
@@ -35,30 +36,37 @@ const ServicesSection = () => {
             link: '#'
         },
         {
-            title: 'Emails development',
+            title: t('services.emailsdev'),
             icon: MailIcon,
             link: '#'
         }
     ];
 
+    const scrollToSection = (id) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <section className='section section-services' id='services-section'>
-            <div className='title'>Services</div>
+            <div className='title'>{t('services.title')}</div>
             <div className='section-services__content'>
                 {
                     services.map(service =>
-                        <a href={service.link} className='section-services__service' key={service.title} >
+                        <div className='section-services__service' key={service.title} onClick={() => scrollToSection('contact-section')} >
                             <div className='section-services__service-icon' >
                                 <img src={service.icon} alt='service icon' />
                             </div>
                             <div className='section-services__service-title' >
                                 {service.title}
                             </div>
-                        </a>
+                        </div>
                     )
                 }
             </div>
-            <Link className='btn' to={'/services'}>See all services</Link>
+            {/* <Link className='btn' to={'/services'}>See all services</Link> */}
         </section>
     )
 }
