@@ -8,6 +8,10 @@ import ServicesSection from '../home-sections/ServicesSection'
 const Homepage = () => {
     useEffect(() => {
         document.title = "Moussa SAIDI";
+        window.scrollTo({
+            top: 0,
+            behavior: 'instant'
+        });
     }, []);
     
     return (
