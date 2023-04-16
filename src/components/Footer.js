@@ -30,7 +30,7 @@ const Footer = () => {
     ];
 
     return (
-        <div className='app-footer'>
+        <footer className='app-footer'>
             <Link to='/' className='app-footer__logo'>
                 <img src={Logo} alt='logo' />
                 <span className='app-footer__first-name'>Moussa </span>Saidi
@@ -39,7 +39,7 @@ const Footer = () => {
                 <span>{t("footer.findme")}</span> {t("footer.in")}
             </h3>
             <SocialLinks links={socials} />
-        </div>
+        </footer>
     )
 }
 

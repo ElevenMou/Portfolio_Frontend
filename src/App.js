@@ -4,6 +4,7 @@ import Homepage from './screens/Homepage';
 import Header from './components/Header';
 import React from 'react';
 import Footer from './components/Footer';
+import Projects from './screens/Projects';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
       <main className='app-main'>
       <Routes>
           <Route path='/' element={<Homepage />} />
+          <Route path='/projects' element={<Projects />} />
         </Routes>
       </main>
       <Footer />

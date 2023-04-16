@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { TypeAnimation } from 'react-type-animation';
 import Experience from '../components/Experience';
 import SocialLinks from '../components/SocialLinks';
 import { useTranslation } from 'react-i18next';
+import { getSocials } from '../data/getData';
 
 const LandingSection = () => {
     const [ t ] = useTranslation();
@@ -17,28 +18,15 @@ const LandingSection = () => {
             label: t('landing.experience.dev')
         }
     ];
-    const socials = [
-        {
-            title: 'Github',
-            icon: 'icon-github',
-            link: 'https://github.com/ElevenMou'
-        },
-        {
-            title: 'LinkedIn',
-            icon: 'icon-linkedin',
-            link: 'https://www.linkedin.com/in/moussasaidi/'
-        },
-        {
-            title: 'Behance',
-            icon: 'icon-behance',
-            link: 'https://www.behance.net/moussasaidi'
-        },
-        {
-            title: 'Dribble',
-            icon: 'icon-dribble',
-            link: 'https://dribbble.com/elevenmou'
-        },
-    ];
+    const [socials, setSocials] = useState([]);
+
+    useEffect(()=> {
+        const fetchSocials = async () => {
+            const socialsData = await getSocials();
+            setSocials(socialsData);
+        }
+        fetchSocials();
+    }, [])
 
     return (
         <section className='section section-landing' id='landing-section'>

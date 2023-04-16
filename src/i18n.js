@@ -34,6 +34,8 @@ i18n
                         "title": "Projects",
                         "body": "This is a selection of projects that showcase my skills and experience in UI/UX design and WEB development.",
                         "seeall": "see all projects",
+                        "nomore": "No more projects!",
+                        "empty": "No projects to show yet!",
                         "popup": {
                             "techs": "Technologies used",
                             "findon": "Find on"
@@ -45,7 +47,7 @@ i18n
                         "form":{
                             "title": "Contact form",
                             "errTitle": "Form invalid",
-                            "success": "Message send!",
+                            "success": "Message sent!",
                             "failed": "Sending failed, please try again later",
                             "name": "Name",
                             "send": "Send message",
@@ -86,6 +88,8 @@ i18n
                         "title": "Les projets",
                         "body": "Voici une sélection de projets qui mettent en valeur mes compétences et mon expérience en UI/UX design et en développement WEB.",
                         "seeall": "voir tous les projets",
+                        "nomore": "Plus de projets!",
+                        "empty": "Aucun projet à afficher pour le moment !",
                         "popup": {
                             "techs": "Technologies utilisées",
                             "findon": "Trouver sur"

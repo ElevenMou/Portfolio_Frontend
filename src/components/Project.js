@@ -30,7 +30,7 @@ const Project = ({ project }) => {
                             : title === "ExpressJs" ? Expressjs
                             : ReactIcon;
 
-    const renderTechs = () => project.technologies.map(tech => <img src={getIcon(tech)} alt='technology logo' title={tech.title} key={tech.title} />)
+    const renderTechs = () => project.technologies.map((tech, index) => <img src={getIcon(tech)} alt='technology logo' title={tech.title} key={index} />)
 
     return (
         <>
