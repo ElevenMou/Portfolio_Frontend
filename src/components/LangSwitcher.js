@@ -50,7 +50,11 @@ const LangSwitcher = () => {
                         current: true
                     }
                 ]);
-                ReactGA.send({ category: 'language', action: 'French'});
+                ReactGA.event({
+                    category: "language",
+                    action: "change",
+                    label: "french"
+                });
             } else {
                 setLangs([
                     {
@@ -64,7 +68,11 @@ const LangSwitcher = () => {
                         current: false
                     }
                 ]);
-                ReactGA.send({ category: 'language', action: 'English'});
+                ReactGA.event({
+                    category: "language",
+                    action: "change",
+                    label: "english"
+                });
             }
         }
     }

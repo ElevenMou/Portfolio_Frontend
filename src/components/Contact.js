@@ -78,7 +78,10 @@ const Contact = () => {
                             message: t('contact.form.success')
                         }
                     });
-                    ReactGA.send({ category: 'contact', action: 'send message'});
+                    ReactGA.event({
+                        category: "contact",
+                        action: "send_message"
+                    });
                 }
             }).catch((err) => {
                 setFormData(prev => ({

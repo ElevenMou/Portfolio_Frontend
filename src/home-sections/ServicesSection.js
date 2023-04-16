@@ -44,7 +44,12 @@ const ServicesSection = () => {
     ];
 
     const scrollToSection = (id, title) => {
-        ReactGA.send({ category: 'services', action: 'click', label: title});
+        ReactGA.event({
+            category: "services",
+            action: "click",
+            label: title
+        });
+
         const element = document.getElementById(id);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });

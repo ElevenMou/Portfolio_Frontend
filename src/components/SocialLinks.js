@@ -4,7 +4,11 @@ import ReactGA from 'react-ga4';
 const SocialLinks = ({links}) => {
 
     const linkClicked = (link) => {
-        ReactGA.send({ category: 'visit external', action: 'social visit', label: link});
+        ReactGA.event({
+            category: "visit_external",
+            action: "social_visit",
+            label: link
+        });
     }
     
     return (

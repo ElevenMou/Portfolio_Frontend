@@ -19,7 +19,11 @@ const Project = ({ project }) => {
 
     const togglePopup = () => {
         setShowDetails(prev => !prev);
-        ReactGA.send({ category: 'project', action: 'View details', label: project.title});
+        ReactGA.event({
+            category: "project",
+            action: "view_details",
+            label: project.title
+        });
     }
 
     const getIcon = (title) => title === "Figma" ? Figma
