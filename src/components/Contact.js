@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import emailjs from '@emailjs/browser';
+import ReactGA from 'react-ga4';
 
 const Contact = () => {
     const { t } = useTranslation();
@@ -77,6 +78,7 @@ const Contact = () => {
                             message: t('contact.form.success')
                         }
                     });
+                    ReactGA.send({ category: 'contact', action: 'send message'});
                 }
             }).catch((err) => {
                 setFormData(prev => ({

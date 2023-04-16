@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next';
+import ReactGA from 'react-ga4';
 
 const LangSwitcher = () => {
     const { i18n } = useTranslation();
@@ -48,7 +49,8 @@ const LangSwitcher = () => {
                         label: 'Français',
                         current: true
                     }
-                ])
+                ]);
+                ReactGA.send({ category: 'language', action: 'French'});
             } else {
                 setLangs([
                     {
@@ -61,7 +63,8 @@ const LangSwitcher = () => {
                         label: 'Français',
                         current: false
                     }
-                ])
+                ]);
+                ReactGA.send({ category: 'language', action: 'English'});
             }
         }
     }

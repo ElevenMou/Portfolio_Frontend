@@ -11,7 +11,7 @@ import Javascript from '../assets/technologies/javascript.svg'
 import ReactIcon from '../assets/technologies/reactjs.svg'
 import Nodejs from '../assets/technologies/node-js.svg'
 import Expressjs from '../assets/technologies/expressjs.svg'
-
+import ReactGA from 'react-ga4';
 
 const Project = ({ project }) => {
     const [showDetails, setShowDetails] = useState(false);
@@ -19,6 +19,7 @@ const Project = ({ project }) => {
 
     const togglePopup = () => {
         setShowDetails(prev => !prev);
+        ReactGA.send({ category: 'project', action: 'View details', label: project.title});
     }
 
     const getIcon = (title) => title === "Figma" ? Figma

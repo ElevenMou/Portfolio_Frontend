@@ -6,6 +6,7 @@ import SeoIcon from '../assets/services-svg/seo.svg'
 import BrandingIcon from '../assets/services-svg/branding.svg'
 import MailIcon from '../assets/services-svg/email.svg'
 import { useTranslation } from 'react-i18next'
+import ReactGA from 'react-ga4';
 
 const ServicesSection = () => {
     const { t } = useTranslation();
@@ -42,7 +43,8 @@ const ServicesSection = () => {
         }
     ];
 
-    const scrollToSection = (id) => {
+    const scrollToSection = (id, title) => {
+        ReactGA.send({ category: 'services', action: 'click', label: title});
         const element = document.getElementById(id);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
@@ -55,7 +57,7 @@ const ServicesSection = () => {
             <div className='section-services__content'>
                 {
                     services.map(service =>
-                        <div className='section-services__service' key={service.title} onClick={() => scrollToSection('contact-section')} >
+                        <div className='section-services__service' key={service.title} onClick={() => scrollToSection('contact-section', service.title)} >
                             <div className='section-services__service-icon' >
                                 <img src={service.icon} alt='service icon' />
                             </div>
