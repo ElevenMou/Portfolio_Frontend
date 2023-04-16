@@ -46,7 +46,7 @@ const ServicesSection = () => {
     const scrollToSection = (id, title) => {
         ReactGA.event({
             category: "services",
-            action: "click",
+            action: "service click",
             label: title
         });
 

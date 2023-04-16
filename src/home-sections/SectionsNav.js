@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ReactGA from 'react-ga4';
 
 const SectionsNav = () => {
     const navItems = [
@@ -27,6 +28,12 @@ const SectionsNav = () => {
     const [activeItem, setActiveItem] = useState('landing-section');
 
     const scrollToSection = (id) => {
+        ReactGA.event({
+            category: "navigate",
+            action: "scroll to section",
+            label: id
+        });
+
         const element = document.getElementById(id);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });

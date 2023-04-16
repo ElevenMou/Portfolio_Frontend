@@ -80,7 +80,7 @@ const Contact = () => {
                     });
                     ReactGA.event({
                         category: "contact",
-                        action: "send_message"
+                        action: "send message"
                     });
                 }
             }).catch((err) => {

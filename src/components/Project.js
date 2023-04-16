@@ -21,7 +21,7 @@ const Project = ({ project }) => {
         setShowDetails(prev => !prev);
         ReactGA.event({
             category: "project",
-            action: "view_details",
+            action: "view project details",
             label: project.title
         });
     }

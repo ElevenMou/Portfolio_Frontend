@@ -52,7 +52,7 @@ const LangSwitcher = () => {
                 ]);
                 ReactGA.event({
                     category: "language",
-                    action: "change",
+                    action: "change language",
                     label: "french"
                 });
             } else {
@@ -70,7 +70,7 @@ const LangSwitcher = () => {
                 ]);
                 ReactGA.event({
                     category: "language",
-                    action: "change",
+                    action: "change language",
                     label: "english"
                 });
             }

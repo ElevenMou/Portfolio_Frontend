@@ -6,7 +6,7 @@ const SocialLinks = ({links}) => {
     const linkClicked = (link) => {
         ReactGA.event({
             category: "visit_external",
-            action: "social_visit",
+            action: "social visit",
             label: link
         });
     }
