@@ -57,12 +57,19 @@ const ServicesSection = () => {
     };
 
     return (
-        <section className='section section-services' id='services-section'>
+        <section className='section section-services' id='services-section' data-aos="fade-right">
             <div className='title'>{t('services.title')}</div>
             <div className='section-services__content'>
                 {
-                    services.map(service =>
-                        <div className='section-services__service' key={service.title} onClick={() => scrollToSection('contact-section', service.title)} >
+                    services.map((service, index) =>
+                        <div
+                            className='section-services__service'
+                            key={service.title}
+                            onClick={() => scrollToSection('contact-section', service.title)}
+                            data-aos="zoom-in"
+                            data-aos-delay={index * 300}
+                            data-aos-duration="300"
+                        >
                             <div className='section-services__service-icon' >
                                 <img src={service.icon} alt='service icon' />
                             </div>

@@ -8,7 +8,7 @@ const ContactSection = () => {
     return (
         <section className='section section-contact' id='contact-section'>
             <div className='section-contact__content'>
-                <div className='section-contact__msg'>
+                <div className='section-contact__msg' data-aos="slide-right">
                     <h2 className='title'>{t('contact.title')}</h2>
                     <p className=''>{t('contact.body')}</p>
                 </div>

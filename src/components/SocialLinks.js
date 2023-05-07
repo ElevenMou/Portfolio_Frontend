@@ -12,7 +12,7 @@ const SocialLinks = ({links}) => {
     }
     
     return (
-        <div className='social-links'>
+        <div className='social-links' data-aos="fade-up">
             {
                 links.map(social => {
                     return (

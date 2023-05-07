@@ -13,7 +13,7 @@ import Nodejs from '../assets/technologies/node-js.svg'
 import Expressjs from '../assets/technologies/expressjs.svg'
 import ReactGA from 'react-ga4';
 
-const Project = ({ project }) => {
+const Project = ({ project, index }) => {
     const [showDetails, setShowDetails] = useState(false);
     const { t } = useTranslation();
 
@@ -27,19 +27,25 @@ const Project = ({ project }) => {
     }
 
     const getIcon = (title) => title === "Figma" ? Figma
-                            : title === "HTML" ? HTML 
-                            : title === "CSS"  ? CSS
-                            : title === "JavaScript" ? Javascript
-                            : title === "React" ? ReactIcon
-                            : title === "NodeJs" ? Nodejs
+        : title === "HTML" ? HTML
+            : title === "CSS" ? CSS
+                : title === "JavaScript" ? Javascript
+                    : title === "React" ? ReactIcon
+                        : title === "NodeJs" ? Nodejs
                             : title === "ExpressJs" ? Expressjs
-                            : ReactIcon;
+                                : ReactIcon;
 
     const renderTechs = () => project.technologies.map((tech, index) => <img src={getIcon(tech)} alt='technology logo' title={tech.title} key={index} />)
 
     return (
         <>
-            <div className='project' onClick={togglePopup} >
+            <div
+                className='project'
+                onClick={togglePopup}
+                data-aos="zoom-in-right"
+                data-aos-delay={(index + 1) * 400}
+                data-aos-duration="400"
+            >
                 <img src={project.image} alt='project' />
                 <div className='project__content'>
                     <h3 className='project__title'> {project.title} </h3>

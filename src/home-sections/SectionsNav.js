@@ -68,7 +68,7 @@ const SectionsNav = () => {
     }, []);
 
     return (
-        <nav className='sections-nav'>
+        <nav className='sections-nav' data-aos="fade-left" data-aos-duration="500" data-aos-offset="-500">
             {
                 navItems.map(item =>
                     <button

@@ -20,13 +20,13 @@ const ProjectsSection = () => {
     return (
         <section className='section section-projects' id='projects-section'>
             <div className='section-projects__content'>
-                <div className='section-projects__desc' >
+                <div className='section-projects__desc' data-aos="zoom-in-right" data-aos-duration="400">
                     <div className='title'>{t('projects.title')}</div>
                     <p>{t('projects.body')}</p>
                     <Link className='btn' to={'/projects'}>{t('projects.seeall')}</Link>
                 </div>
                 {
-                    projects.map((project) => <Project project={project} key={project.id} />)
+                    projects.map((project, index) => <Project project={project} index={index} key={project.id} />)
                 }
 
             </div>

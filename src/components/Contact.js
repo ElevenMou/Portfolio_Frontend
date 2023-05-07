@@ -197,7 +197,7 @@ const Contact = () => {
     }
 
     return (
-        <form ref={form} onSubmit={handleSubmit} className='contact-form'>
+        <form ref={form} onSubmit={handleSubmit} className='contact-form' data-aos="slide-left">
             <div className='form-validation' valid={formData.valid.isValid.toString()}>
                 {formData.valid.message}
             </div>

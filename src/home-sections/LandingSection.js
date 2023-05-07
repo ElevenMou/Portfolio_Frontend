@@ -29,7 +29,7 @@ const LandingSection = () => {
     }, [])
 
     return (
-        <section className='section section-landing' id='landing-section'>
+        <section className='section section-landing' id='landing-section' data-aos="fade-down" data-aos-delay="500">
             <div className='section-landing__content'>
                 <div className='section-landing__hello'>{t('landing.greeting')}</div>
                 <div className='section-landing__name'>{t('landing.Iam')} <span>Moussa Saidi</span></div>

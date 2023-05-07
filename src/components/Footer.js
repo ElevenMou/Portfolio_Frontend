@@ -31,11 +31,11 @@ const Footer = () => {
 
     return (
         <footer className='app-footer'>
-            <Link to='/' className='app-footer__logo'>
+            <Link to='/' className='app-footer__logo' data-aos="fade-up">
                 <img src={Logo} alt='logo' />
                 <span className='app-footer__first-name'>Moussa </span>Saidi
             </Link>
-            <h3 className='app-footer__title'>
+            <h3 className='app-footer__title' data-aos="fade-up">
                 <span>{t("footer.findme")}</span> {t("footer.in")}
             </h3>
             <SocialLinks links={socials} />

@@ -7,12 +7,15 @@ import Footer from './components/Footer';
 import Projects from './screens/Projects';
 import ReactGA from 'react-ga4';
 import { useEffect } from 'react';
+import 'aos/dist/aos.css';
+import Aos from 'aos';
 
 function App() {
   const TRACKING_ID = "G-DC1F2ECVC8";
 
   useEffect(() => {
     ReactGA.initialize(TRACKING_ID);
+    Aos.init({duration: 1000});
   }, [])
 
   return (

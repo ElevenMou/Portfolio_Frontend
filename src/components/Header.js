@@ -5,7 +5,7 @@ import LangSwitcher from './LangSwitcher'
 
 const Header = () => {
     return (
-        <header className='app-header'>
+        <header className='app-header' data-aos="fade-down" data-aos-duration="500">
             <Link to='/' className='app-header__logo'>
                 <img src={Logo} alt='logo' />
                 <span className='app-header__first-name'>Moussa </span>Saidi
