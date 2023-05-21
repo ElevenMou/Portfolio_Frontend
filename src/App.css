@@ -490,6 +490,8 @@ p {
   flex-direction: column;
   justify-content: space-between;
   gap: 15px;
+  max-height: 60vh;
+  overflow: auto;
 }
 
 .project__details-container p {
