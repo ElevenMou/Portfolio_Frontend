@@ -11,6 +11,7 @@ import Javascript from '../assets/technologies/javascript.svg'
 import ReactIcon from '../assets/technologies/reactjs.svg'
 import Nodejs from '../assets/technologies/node-js.svg'
 import Expressjs from '../assets/technologies/expressjs.svg'
+import Sass from '../assets/technologies/sass.svg'
 import ReactGA from 'react-ga4';
 
 const Project = ({ project, index }) => {
@@ -33,7 +34,8 @@ const Project = ({ project, index }) => {
                     : title === "React" ? ReactIcon
                         : title === "NodeJs" ? Nodejs
                             : title === "ExpressJs" ? Expressjs
-                                : ReactIcon;
+                                : title === "Sass" ? Sass
+                                    : ReactIcon;
 
     const renderTechs = () => project.technologies.map((tech, index) => <img src={getIcon(tech)} alt='technology logo' title={tech.title} key={index} />)
 
