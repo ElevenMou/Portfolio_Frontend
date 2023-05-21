@@ -12,6 +12,8 @@ import ReactIcon from '../assets/technologies/reactjs.svg'
 import Nodejs from '../assets/technologies/node-js.svg'
 import Expressjs from '../assets/technologies/expressjs.svg'
 import Sass from '../assets/technologies/sass.svg'
+import Laravel from '../assets/technologies/Laravel.svg'
+import PHP from '../assets/technologies/php.svg'
 import ReactGA from 'react-ga4';
 
 const Project = ({ project, index }) => {
@@ -35,7 +37,9 @@ const Project = ({ project, index }) => {
                         : title === "NodeJs" ? Nodejs
                             : title === "ExpressJs" ? Expressjs
                                 : title === "Sass" ? Sass
-                                    : ReactIcon;
+                                    : title === "Laravel" ? Laravel
+                                        : title === "PHP" ? PHP
+                                            : ReactIcon;
 
     const renderTechs = () => project.technologies.map((tech, index) => <img src={getIcon(tech)} alt='technology logo' title={tech.title} key={index} />)
 
