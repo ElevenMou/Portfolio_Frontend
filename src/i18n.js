@@ -22,7 +22,8 @@ i18n
                             "year": "year",
                             "design": "Design experience",
                             "dev": "Web development  experience"
-                        }
+                        },
+                        "resume": "Download resume"
                     },
                     "services": {
                         "title": "Services",
@@ -44,7 +45,7 @@ i18n
                     "contact": {
                         "title": "Let's work",
                         "body": "I would love to hear from you!",
-                        "form":{
+                        "form": {
                             "title": "Contact form",
                             "errTitle": "Form invalid",
                             "success": "Message sent!",
@@ -76,7 +77,8 @@ i18n
                             "year": "année",
                             "design": "Expérience de design",
                             "dev": "Expérience en développement Web"
-                        }
+                        },
+                        "resume": "Télécharger CV"
                     },
                     "services": {
                         "title": "Les services",
@@ -98,7 +100,7 @@ i18n
                     "contact": {
                         "title": "Allons travailler",
                         "body": "J'aimerais lire votre message!",
-                        "form":{
+                        "form": {
                             "title": "Formulaire de contact",
                             "errTitle": "Formulaire invalide",
                             "success": "Message envoyé!",

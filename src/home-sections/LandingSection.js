@@ -4,9 +4,11 @@ import Experience from '../components/Experience';
 import SocialLinks from '../components/SocialLinks';
 import { useTranslation } from 'react-i18next';
 import { getSocials } from '../data/getData';
+import ResumeEN from '../assets/resume/Moussa_SAIDI_Resume.pdf'
+import ResumeFR from '../assets/resume/Moussa_SAIDI_CV.pdf'
 
 const LandingSection = () => {
-    const [ t ] = useTranslation();
+    const [t, i18n] = useTranslation();
     const currDate = new Date();
     const experiences = [
         {
@@ -20,7 +22,7 @@ const LandingSection = () => {
     ];
     const [socials, setSocials] = useState([]);
 
-    useEffect(()=> {
+    useEffect(() => {
         const fetchSocials = async () => {
             const socialsData = await getSocials();
             setSocials(socialsData);
@@ -52,6 +54,14 @@ const LandingSection = () => {
                     }
                 </div>
                 <SocialLinks links={socials} />
+                <a href={i18n.language === "en" ? ResumeEN : ResumeFR}
+                    download="MoussaSAIDI"
+                    target="_blank"
+                    rel="noreferrer"
+                    className='btn'
+                    style={{ marginTop: "20px" }}
+                >{t('landing.resume')}
+                </a>
             </div>
         </section>
     )
