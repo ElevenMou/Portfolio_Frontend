@@ -59,7 +59,10 @@ const LandingSection = () => {
                     target="_blank"
                     rel="noreferrer"
                     className='btn'
-                    style={{ marginTop: "20px" }}
+                    style={{
+                        marginTop: "20px",
+                        marginLeft: "var(--landing-safe-left)"
+                    }}
                 >{t('landing.resume')}
                 </a>
             </div>
