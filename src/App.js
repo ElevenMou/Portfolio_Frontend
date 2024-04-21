@@ -1,10 +1,10 @@
 import './App.css';
 import { Route, Routes } from "react-router-dom";
-import Homepage from './screens/Homepage';
+import Homepage from './routes/Homepage';
 import Header from './components/Header';
 import React from 'react';
 import Footer from './components/Footer';
-import Projects from './screens/Projects';
+import Projects from './routes/Projects';
 import ReactGA from 'react-ga4';
 import { useEffect } from 'react';
 import 'aos/dist/aos.css';
